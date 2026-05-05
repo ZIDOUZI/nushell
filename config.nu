@@ -31,6 +31,7 @@ use modules/confirm.nu
 use modules/ln.nu
 use modules/ps.nu
 use modules/join.nu
+use modules/dotenv.nu *
 
 $env.config = ($env.config? | default {})
 
@@ -63,9 +64,9 @@ def swap-bak [file: path] {
   mv $tmp $bak
 }
 
-if not (which fastfetch | is-empty) and ($env.TERM_PROGRAM? != "vscode") and not $nu.is-interactive {
+if not (which fastfetch | is-empty) and ($env.TERM_PROGRAM? != "vscode") and $nu.is-interactive {
   $env.config.show_banner = false
-  
+
   if $nu.os-info.name == "windows" {
     # return
     # TODO)): fix fastfetch can't find image magick library error.
