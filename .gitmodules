@@ -1,0 +1,3 @@
+[submodule "modules/dotenv.nu"]
+	path = modules/dotenv.nu
+	url = https://github.com/TehPers/dotenv.nu.git

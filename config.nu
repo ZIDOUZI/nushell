@@ -32,6 +32,8 @@ use modules/ln.nu
 use modules/ps.nu
 use modules/join.nu
 use modules/dotenv.nu *
+use modules/go-module.nu
+use modules/pstree.nu
 
 $env.config = ($env.config? | default {})
 
