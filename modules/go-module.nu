@@ -30,10 +30,10 @@ def start-one [name: string] {
         job spawn -d $name { ^go run ./srv }
     }
 
-    let new_state = ($state | upsert $name { job_id: $job.id })
+    let new_state = ($state | upsert $name { job_id: $job })
     $new_state | to json | save -f $state_file
 
-    print $"服务 '($name)' 已启动 \(job ID: ($job.id)\)"
+    print $"服务 '($name)' 已启动 \(job ID: ($job)\)"
 }
 
 # 停止单个服务
