@@ -26,6 +26,6 @@ if ($env.NU_CONFIG_SHOW_BANNER? == 'false') {
   $env.config.show_banner = false
 }
 
-$env.TRANSIENT_PROMPT_COMMAND = {|| $" (starship module character) "}
+$env.TRANSIENT_PROMPT_COMMAND = {|| try { $" (starship module character) " } catch { "" } }
 $env.NU_EXPERIMENTAL_OPTIONS = "native-clip"
 
